@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quản lý Sản Phẩm</title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+	<!-- JQuery UI -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Animate -->
+	<!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/modal.css">
+
+	<link rel="stylesheet" href="css/style4.css">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		
+
+		<!-- Page Content Holder -->
+		<div id="content">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button"  class="btn btn-info navbar-btn">
+                            <a href="../../Login.html">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                                <span>Quay lại</span>
+                            </a>
+						</button>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container">
+				<div class="card text-center">
+					<!-- Header -->
+					<div class="card-header myCardHeader">
+						<div class="row">
+							<div class="col-md-6">
+								<h3 class="text-left text-primary font-weight-bold">Danh sách Sản Phẩm</h3>
+							</div>
+							<div class="col-md-6 text-right">
+								<button class="btn btn-primary" id="btnThem" data-toggle="modal"
+									data-target="#myModal">Thêm Sản Phẩm</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Body -->
+					<div class="card-body">
+						<div class="row mb-3">
+							<div class="col">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Tìm kiếm Sản phẩm" id="searchName">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="btnTimNV"><i class="fa fa-search"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<table class="table table-bordered table-hover myTable">
+							<thead class="text-primary">
+								<tr>
+									<th class="nowrap">
+										<span class="mr-1">Id</span>
+									</th>
+									<th>Tên Sản Phẩm</th>
+									<th>Giá Tiền
+                                        <button><i class="fa fa-arrow-down" id="SapXepGiam"></i></button>
+                                        <button><i class="fa fa-arrow-up" id="SapXepTang"></i></button>
+                                    </th>
+									<th>Màn Hình</th>
+									<th>Camera</th>									
+									<th>Mô tả</th>
+									<th>Loại Sản Phẩm</th>
+									<th><em class="fa fa-cog"></em></th>
+								</tr>
+							</thead>
+
+							<tbody id="tableDanhSach">
+
+							</tbody>
+						</table>
+					</div>
+
+					<!-- Footer -->
+					<div class="card-footer myCardFooter">
+						<nav>
+							<ul class="pagination justify-content-center" id="ulPhanTrang">
+
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<header class="head-form mb-0">
+					<h2 id="header-title">Thêm Sản Phẩm</h2>
+				</header>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					<form id="formProduct" role="form">
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div>
+								<input type="text" name="name" id="name" class="form-control input-sm"
+									placeholder="Tên Sản Phẩm">
+							</div>
+
+							<span class="sp-thongbao" id="tbName"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
+								</div>
+								<input type="name" name="price" id="price" class="form-control input-sm"
+									placeholder="Giá Sản Phẩm">
+							</div>
+							<span class="sp-thongbao" id="tbPrice"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+								</div>
+								<input type="text" name="screen" id="screen" class="form-control input-sm"
+									placeholder="Màn hình">
+							</div>
+
+							<span class="sp-thongbao" id="tbScreen"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-key"></i></span>
+								</div>
+								<input type="text" name="backCamera" id="backCamera" class="form-control input-sm"
+									placeholder="Camera sau">
+							</div>
+							<span class="sp-thongbao" id="tbBackCamera"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+								</div>
+								<input type="text" name="frontCamera" id="frontCamera" class="form-control"
+									placeholder="Camera trước">
+							</div>
+
+							<span class="sp-thongbao" id="tbFrontCamera"></span>
+						</div>
+						
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+								</div>
+								<input type="text" name="img" id="img" class="form-control input-sm"
+									placeholder="Hình ảnh">
+							</div>
+							<span class="sp-thongbao" id="tbImg"></span>
+						</div>
+
+                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" name="desc" id="desc" class="form-control input-sm"
+                                    placeholder="Mô tả">
+                            </div>
+                            <span class="sp-thongbao" id="tbDesc"></span>
+                        </div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+								</div>
+								<select class="form-control" id="type">
+									<option>Chọn Loại Sản Phẩm</option>
+									<option>iphone</option>
+									<option>samsung</option>
+								</select>
+							</div>
+                        </div>
+
+						<span class="sp-thongbao" id="tbType"></span>
+						
+
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer" id="modal-footer">
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!----------------------- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	 <!----------------------- Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+     <!----------------------- Bootstrap -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+ 
+
+	<!-- Date Picker -->
+	<!-- <script src="js/jquery-ui.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js" integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- Wow -->
+	<!-- <script src="js/wow.min.js"></script>	
+	<script>
+		new WOW().init();
+	</script>  -->
+
+	<!-- <script src="js/modal.js"></script> -->
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').toggleClass('active');
+			});
+		});
+	</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <script src="../model/Product.js"></script>
+    <script src="../model/ProductList.js"></script>
+    <script src="../services/ProductService.js"></script>
+    <script src="../controller/Validation.js"></script>
+    <script src="../controller/main.js"></script>
+    
+</body>
+
+</html>

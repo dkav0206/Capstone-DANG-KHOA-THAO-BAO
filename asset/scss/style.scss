@@ -1,0 +1,76 @@
+$bg-primary: #5161ce;
+$bg-secondary: white;
+
+$text-primary:#5161ce;
+$text-secondary:white;
+
+$color_1:#5161ce;
+$color_2: black;
+$color_3: white;
+
+$background-color_1: white;
+$background-color_2: #959fdd;
+$background-color_3: #1C1F25;
+$background-color_4: rgba(170, 169, 169, 0.333);
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+//---- global----
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+    background-image: url(../image/wp5910934.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+.middle{    
+    height: auto;
+    width: 400px;
+    margin: auto;   
+}
+
+a{
+    all:unset;
+    &:hover{
+        all:unset;
+    }
+}
+
+
+.center {
+    margin-top:25%;
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 400px;
+    height: 400px;
+    
+}
+
+button{
+    padding: 1em 2em;
+    margin-left: 1em;
+    background-color: $bg-primary;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    transition: .5s;
+    
+    &:hover{ 
+        background-color: $bg-secondary;
+        color: $bg-primary;
+    }
+}
