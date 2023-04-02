@@ -398,7 +398,7 @@ footer .footer__sub span a:hover {
 
 .listCard li {
   display: grid;
-  grid-template-columns: 100px repeat(3, 1fr);
+  grid-template-columns: 200px repeat(3, 1fr);
   color: black;
   row-gap: 10px;
 }
